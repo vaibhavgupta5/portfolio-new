@@ -17,7 +17,7 @@ function LeftSideBar() {
                   height={70}
                 />
 
-                <div className="flex gap-4 md:flex-col justify-center items-start md:ml-4 fixed bottom-0 md:static bg-[#0A0A0B] md:border-t-0 border-t-1 md:border-none border-dashed border-[#202021]  left-0 w-full md:w-auto z-50 py-4 md:py-0 md:bg-transparent">
+                <div className="flex gap-8 md:gap-4 md:flex-col justify-center items-start md:ml-4 fixed bottom-0 md:static bg-[#0A0A0B] md:border-t-0 border-t-2 md:border-none border-dashed border-[#202021]  left-0 w-full md:w-auto z-50 py-4 md:py-0 md:bg-transparent">
                   <div  className="flex z-50 gap-4 group justify-center items-center">
                     <User
                       className={page === 'home' ? "text-[#999999] cursor-pointer group  h-12 w-12 p-3 rounded-xl bg-[#141415] dark:text-[#999999]" : "text-[#999999] cursor-pointer group hover:bg-[#0A0A0B] border-1 border-transparent hover:border-[#202021] h-12 w-12 p-3 rounded-xl  dark:text-[#999999]"}
