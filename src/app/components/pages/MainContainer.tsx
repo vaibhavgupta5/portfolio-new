@@ -6,12 +6,16 @@ import { Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import ScheduleCallButton from "../ui/ScheduleCallButton";
 import AnimatedSection from "../framer/AnimatedSection";
-import ExperienceSection from "./Experience";
-import StackSection from "./MyStacks";
+import ExperienceSection from "../sections/Experience";
+import StackSection from "../sections/MyStacks";
+import MyServices from "../sections/MyServices";
+import MyWorks from "../sections/MyWorks";
+import MyEducationSection from "../sections/MyEducation";
+import { motion } from 'framer-motion';
+import { useCurrPage } from "@/lib/store";
 
 export function Counter({ end }: { end: number }) {
   const [count, setCount] = useState(0);
-
   useEffect(() => {
     if (count >= end) return;
 
@@ -30,20 +34,27 @@ export function Counter({ end }: { end: number }) {
 }
 
 function MainContainer() {
+    const {setPage} = useCurrPage();
   return (
     <div>
       <section className=" w-[90%] mx-auto  py-10 px-4 md:px-16">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10">
           {/* Profile Image */}
-          <div className="rounded-2xl overflow-hidden bg-[#111] p-4">
-            <Image
-              src="https://avatars.githubusercontent.com/u/109146556?v=4" // Replace with your actual image path
-              alt="Jayapal Reddy"
-              width={250}
-              height={250}
-              className="rounded-lg object-cover"
-            />
-          </div>
+            <motion.div
+      className="rounded-2xl overflow-hidden bg-[#111] p-4"
+      initial={{ opacity: 0, scale: 0.95, y: 40 }}
+      whileInView={{ opacity: 1, scale: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+    >
+      <Image
+        src="https://media.licdn.com/dms/image/v2/D5603AQFuE6Kp5fqp0w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731868836743?e=1755734400&v=beta&t=djoRdkX3rT_xaw18Sj_YfdUW2JALNf6LRytnn4Xbu78"
+        alt="Vaibhav Gupta"
+        width={250}
+        height={250}
+        className="rounded-lg object-cover"
+      />
+    </motion.div>
 
           {/* Text Content */}
           <div className="flex-1 font-medium text-[#999999]">
@@ -61,8 +72,10 @@ function MainContainer() {
 
             {/* Buttons */}
             <div className="flex gap-4 flex-wrap">
-              <button className="bg-[#141415] border border-[#202021] text-white px-8 py-3 rounded-xl flex items-center gap-2 hover:bg-transparent cursor-pointer transition">
-                <Mail size={18} /> EMAIL ME
+              <button className="bg-[#141415] border border-[#202021] text-white px-8 py-3 rounded-xl flex items-center gap-2 hover:bg-transparent cursor-pointer transition"
+                onClick={() => setPage('contact')}
+              >
+                <Mail size={18} /> CONTACT ME
               </button>
               <ScheduleCallButton />
             </div>
@@ -89,12 +102,21 @@ function MainContainer() {
           </div>
         </AnimatedSection>
 
-    <AnimatedSection>
-        <ExperienceSection />
-    </AnimatedSection>
-       <AnimatedSection>
-        <StackSection />
-    </AnimatedSection>
+        <AnimatedSection>
+          <ExperienceSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <StackSection />
+        </AnimatedSection>
+        <AnimatedSection>
+          <MyServices />
+        </AnimatedSection>
+          <AnimatedSection>
+          <MyWorks />
+        </AnimatedSection>
+          <AnimatedSection>
+          <MyEducationSection />
+        </AnimatedSection>
       </section>
     </div>
   );

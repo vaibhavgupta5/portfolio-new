@@ -28,7 +28,7 @@ export default function RootLayout({
         className={`$ ${geistMono.className} antialiased`}
       >
         <ThemeProvider attribute="class">
-          <div className="flex w-full min-h-screen">
+          <div className="flex md:flex-row flex-col w-full min-h-screen">
             <LeftSideBar />
 
             <main className="w-[72%] min-h-screen">{children}</main>

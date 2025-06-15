@@ -1,7 +1,11 @@
 "use client";
 import { Circle } from "lucide-react";
 import React, { useEffect, useState } from "react";
-import MainContainer from "./components/sections/MainContainer";
+import MainContainer from "./components/pages/MainContainer";
+import { useCurrPage } from "@/lib/store";
+import ContactSection from "./components/pages/ContactSection";
+import AnimatedSection from "./components/framer/AnimatedSection";
+import WorkPageSection from "./components/pages/WorkSection";
 
 function getISTTime(): string {
   const now = new Date();
@@ -20,7 +24,7 @@ function getISTTime(): string {
 
 function Page() {
   const [time, setTime] = useState(getISTTime());
-
+  const {page} = useCurrPage()
   useEffect(() => {
     const interval = setInterval(() => {
       setTime(getISTTime());
@@ -45,7 +49,22 @@ function Page() {
         </div>
       </div>
       <div className="flex-grow p-8">
-        <MainContainer />
+        {page === 'home' && <MainContainer />}
+        {page === 'work' && <AnimatedSection><WorkPageSection /></AnimatedSection>}
+        {page === 'contact' && <AnimatedSection><ContactSection /></AnimatedSection>}
+      </div>
+       <div className="flex h-[12vh] w-full border-[#202021] border-t-1 justify-between font-bold px-8 py-5 text-gray-800 dark:text-gray-200">
+        <div className="text-sm flex justify-center items-center bg-[#141415] text-[#999999] border-[#202021] border-1 px-8 rounded-full font-semibold ">
+          <Circle className="text-[#6DD33D] fill-[#6DD33D] animate-pulse p-1 mr-1" />
+          <p>Open for Work</p>
+        </div>
+
+        <div className="text-sm flex gap-2 justify-center items-center  text-[#999999] font-semibold ">
+          <p>Local Time (IST)</p>
+          <span className="text-sm flex justify-center items-center bg-[#141415] p-3 px-4  border-[#202021] border-1  rounded-full font-semibold text-gray-300">
+            {time}
+          </span>
+        </div>
       </div>
     </div>
   );

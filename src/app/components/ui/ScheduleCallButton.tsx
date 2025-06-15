@@ -32,6 +32,7 @@ export default function ScheduleCallButton() {
     <button
       onMouseEnter={handleMouseEnter}
       className="border border-[#202021] hover:bg-[#141415] bg-[#0A0A0B] text-white px-8 py-3 rounded-xl flex cursor-pointer items-center gap-2 transition font-mono tracking-wider"
+      onClick={() => window.open('https://calendly.com/vaibhavgupta111/15min', '_blank')}
     >
       <Calendar size={18} />
       <span>{text}</span>

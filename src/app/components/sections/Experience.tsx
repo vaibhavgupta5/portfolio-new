@@ -42,9 +42,7 @@ export default function ExperienceSection() {
           <h2 className="text-2xl font-bold">My Experience</h2>
         </div>
         <p className="text-[#999999] font-medium text-sm ">
-          Navigating diverse environments with adaptability and expertise for
-          holistic solutions.
-        </p>
+Worked across diverse environments to build scalable web apps.        </p>
 
 
 <div className="w-full border-b border-dashed border-[#202021] my-6"></div>
