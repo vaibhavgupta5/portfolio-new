@@ -81,12 +81,13 @@ const showcaseData = [
 
 export default function WorkPageSection() {
   return (
-    <section className="w-[90%] text-white mx-auto py-10 px-4 md:px-16">
+    <section className="md:w-[90%] text-white mx-auto md:py-10 md:px-16">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+
       >
         <div className="flex items-center gap-2 font-medium mb-2">
           <Rocket size={22} />

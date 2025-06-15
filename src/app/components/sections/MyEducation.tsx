@@ -26,7 +26,7 @@ const educationData = [
 
 export default function MyEducationSection() {
   return (
-    <section className="text-white pt-30 px-4 max-w-4xl mx-auto">
+    <section className="text-white pt-30 md:px-4 max-w-4xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}

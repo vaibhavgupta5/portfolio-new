@@ -31,7 +31,7 @@ export default function RootLayout({
           <div className="flex md:flex-row flex-col w-full min-h-screen">
             <LeftSideBar />
 
-            <main className="w-[72%] min-h-screen">{children}</main>
+            <main className="md:w-[72%] min-h-screen">{children}</main>
 
            <RightSideBar />
           </div>

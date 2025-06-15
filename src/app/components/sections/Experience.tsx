@@ -30,7 +30,7 @@ const experienceData = [
 
 export default function ExperienceSection() {
   return (
-    <section className="text-white pt-30 px-4 max-w-4xl mx-auto">
+    <section className="text-white pt-30 md:px-4  md:max-w-4xl mx-auto">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -51,15 +51,15 @@ Worked across diverse environments to build scalable web apps.        </p>
           {experienceData.map((exp, i) => (
             <motion.div
               key={i}
-              className="bg-[#0A0A0B] border border-[#202021] px-8 py-6 rounded-2xl flex flex-col gap-3"
+              className="bg-[#0A0A0B] border border-[#202021] md:px-8 px-4 py-6 rounded-2xl flex flex-col gap-3"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.15 }}
             >
-              <div className="flex justify-between items-center">
-                <div className="flex w-[70%]  items-center gap-3">
-                  <div className="w-[10%] bg-white  rounded-xl flex items-center justify-center">
+              <div className="flex md:flex-row flex-col  justify-between items-center">
+                <div className="flex md:w-[70%] w-full items-center gap-3">
+                  <div className="md:w-[10%] w-[20%] bg-white  rounded-xl flex items-center justify-center">
                     {exp.logo ? <Image
                       src={exp.logo || "/default-logo.png"}
                       alt={`${exp.company} logo`}
@@ -72,7 +72,7 @@ Worked across diverse environments to build scalable web apps.        </p>
                     </p>
                     }
                   </div>
-                  <div>
+                  <div >
                     <div className="font-semibold    text-lg">
                       {exp.company}
                     </div>
@@ -81,7 +81,7 @@ Worked across diverse environments to build scalable web apps.        </p>
                     </div>
                   </div>
                 </div>
-                <div className="text-right w-[30%] font-semibold text-white/80">
+                <div className="md:text-right mt-4 md:mt-0 md:w-[30%] w-full font-semibold text-white/80">
                   {exp.duration}
                 </div>
               </div>

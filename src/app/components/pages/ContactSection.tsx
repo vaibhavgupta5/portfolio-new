@@ -69,7 +69,7 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="w-[90%] text-white mx-auto py-10 px-4 md:px-16">
+    <section className="md:w-[90%] text-white mx-auto md:py-10  md:px-16">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -78,7 +78,9 @@ export default function ContactSection() {
       >
         <h2 className="text-2xl font-bold flex items-center gap-2">
           <Mail size={22} />
-          I Love to hear from you.
+          <p className='flex md:hidden'>Contact Me</p>
+          <p className='hidden md:flex'>I Love to hear from you.</p>
+          
         </h2>
         <p className="text-[#999999] text-sm mt-1 mb-4">
           Connect with Me Today. Let’s Create Something Amazing Together!
