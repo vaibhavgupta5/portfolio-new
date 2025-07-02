@@ -9,9 +9,9 @@ import React from "react";
 
 function RightSideBar() {
   return (
-    <aside className="w-[14%] h-screen sticky border-l-1 md:flex hidden flex-col items-center justify-center border-[#202021] top-0 bg-gray-100 dark:bg-[#050505]">
-      <div className="flex h-[95vh] w-full pl-8 flex-col justify-center items-start p-4">
-        <div className="flex gap-4 flex-col justify-center items-start ">
+    <aside className="md:w-[14%]  w-full mb-16 md:mb-0 md:h-screen sticky border-l-1 md:flex flex-row  md:flex-col items-center justify-center border-[#202021] top-0 bg-gray-100 dark:bg-[#050505]">
+      <div className="flex md:h-[95vh] w-full md:pl-8 flex-col justify-center md:items-start p-4">
+        <div className="flex gap-4 md:flex-col justify-center items-start ">
           <div
             className="flex gap-4 group justify-center items-center"
             onClick={() =>
