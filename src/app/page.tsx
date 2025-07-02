@@ -65,7 +65,7 @@ function Page() {
           </AnimatedSection>
         )}
       </div>
-      <div className="flex h-[12vh]  w-full border-[#202021] border-t-1 justify-between items-center font-bold px-8 py-5 text-gray-800 dark:text-gray-200">
+      <div className="flex h-[12vh]  w-full border-[#202021] border-t-1 justify-between items-center font-bold px-8 py-5 pb-0 md:pb-5 text-gray-800 dark:text-gray-200">
         <div className="text-sm hidden md:flex justify-center items-center  bg-[#141415] text-[#999999] border-[#202021] border-1 md:px-8 rounded-full font-semibold ">
           <Circle className="text-[#6DD33D] fill-[#6DD33D] animate-pulse p-1 mr-1" />
           <p>Open for Work</p>
