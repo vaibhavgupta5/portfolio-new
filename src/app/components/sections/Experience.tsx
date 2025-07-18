@@ -26,6 +26,17 @@ const experienceData = [
       "Built a Devfolio-like registration system from scratch, enhancing user experience and automating workflows. Scaled to support 2,000+ participants.",
     logo: "https://firebasestorage.googleapis.com/v0/b/endevaour-2023.appspot.com/o/webassets%2Fblack%20logo%20br.png?alt=media&token=d45e4438-bc54-47dd-9d9c-14f4d41991d1", // Optional
   },
+  {
+  company: "Freelance",
+  type: "Client Projects",
+  website: "https://github.com/vaibhavgupta5", // or your portfolio link
+  duration: "Jan 2024 - Present",
+  role: "Full Stack Developer",
+  description:
+    "Completed 25+ freelance projects across domains like e-commerce, landing pages, admin panels, and dynamic web apps using MERN stack and Next.js. Delivered high-performance, fully responsive solutions tailored to client needs.",
+  logo: "https://cdn-icons-png.flaticon.com/512/921/921347.png", // Optional generic freelance icon
+}
+
 ];
 
 export default function ExperienceSection() {
