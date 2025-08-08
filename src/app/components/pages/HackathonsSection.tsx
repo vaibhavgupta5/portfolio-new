@@ -1,16 +1,14 @@
 "use client";
 
-import { ArrowRight, Github, Link, Rocket } from "lucide-react";
+import {  Github, Link, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { useCurrPage } from "@/lib/store";
-import AnimatedSection from "../framer/AnimatedSection";
 
 const showcaseData = [
   {
     title: "Endeavour Website",
     image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/Screenshot%202025-06-15%20142007.png?raw=true", // Replace with actual preview if available
+      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/Screenshot%202025-06-15%20142007.png?raw=true",
     description:
       "Full-stack event website with Devfolio-style team registration system.",
     tags: ["React", "MongoDB", "Node.js", "Tailwind"],
@@ -35,26 +33,19 @@ const showcaseData = [
     description:
       "Railway safety system with AI-based animal detection and real-time alerts.",
     tags: ["AI", "Computer Vision", "Flask", "Next.js"],
-    link: "https://rail-web.vercel.app/",
     github: "https://github.com/vaibhavgupta5/RailKavach---Hack",
     linkLabel: "View Project",
   },
- {
-    title: "FormUp",
+  {
+    title: "Anonimy NGL",
     image:
-      "/works/formup.png",
+      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/ngl.jpg?raw=true",
     description:
-      "Lightweight browser extension to instantly fill forms with random, realistic data. Ideal for rapid testing.",
-    tags: [
-      "Next.js",
-      "Tailwind CSS",
-      "Plasmo",
-      "Framer Motion",
-      "Browser Extension",
-    ],
-    github: "https://github.com/vaibhavgupta5/FormUp",
-    link: "https://goformup.vercel.app/",
-    linkLabel: "View on GitHub",
+      "An anonymous messaging platform inspired by NGL, built with authentication and session handling.",
+    tags: ["Next.js", "NextAuth", "Tailwind"],
+    link: "https://anonimy-ngl.vercel.app/",
+    linkLabel: "Try Now",
+    github: "https://github.com/vaibhavgupta5/Anonimy-NGL",
   },
   {
     title: "IdeaTEX",
@@ -67,17 +58,36 @@ const showcaseData = [
     linkLabel: "Visit Site",
     github: "https://github.com/vaibhavgupta5/ideaTEX-React",
   },
+  {
+    title: "URL Shortner",
+    image: "https://github.com/vaibhavgupta5/portfolio/blob/main/public/url.jpg?raw=true",
+    description: "A simple and fast URL shortener with custom short links.",
+    tags: ["Next.js", "MongoDB"],
+    link: "https://oklinkify.vercel.app/",
+    linkLabel: "Try Now",
+    github: "https://github.com/vaibhavgupta5/URL-Shortner",
+  },
+  {
+    title: "Kanban Board",
+    image: "https://github.com/vaibhavgupta5/portfolio/blob/main/public/kanban.jpg?raw=true",
+    description:
+      "A drag-and-drop Kanban board built with pure HTML, CSS, and JavaScript.",
+    tags: ["HTML", "CSS", "JavaScript"],
+    link: "https://kanban-vaibhavgupta5.netlify.app/",
+    linkLabel: "View Project",
+    github: "https://github.com/vaibhavgupta5/KanBan-Board---JS",
+  },
 ];
 
-export default function MyWorks() {
-  const { setPage } = useCurrPage();
+export default function HackathonsSection() {
   return (
-    <section className="text-white pt-30 md:px-4 max-w-4xl mx-auto">
+    <section className="md:w-[90%] text-white mx-auto md:py-10 md:px-16">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
+
       >
         <div className="flex items-center gap-2 font-medium mb-2">
           <Rocket size={22} />
@@ -140,20 +150,6 @@ export default function MyWorks() {
               </div>
             </motion.div>
           ))}
-          <AnimatedSection>
-            <div
-              className=" flex w-full rounded-lg text-sm gap-2 items-center group justify-between group-hover:bg-[#141415] transition-all duration-300 p-3 cursor-pointer mt-4"
-              onClick={() => {setPage("work")
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }}
-            >
-              <p>View more work!</p>
-              <ArrowRight
-                size={16}
-                className="text-[#999999] transition-all  duration-500 group-hover:rotate-315 "
-              />
-            </div>
-          </AnimatedSection>
         </div>
       </motion.div>
     </section>

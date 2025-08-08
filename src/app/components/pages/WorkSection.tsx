@@ -1,6 +1,6 @@
 "use client";
 
-import {  Github, Link, Rocket } from "lucide-react";
+import { Github, Link, Rocket } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -48,6 +48,23 @@ const showcaseData = [
     github: "https://github.com/vaibhavgupta5/Anonimy-NGL",
   },
   {
+    title: "FormUp",
+    image:
+      "/works/formup.png",
+    description:
+      "Lightweight browser extension to instantly fill forms with random, realistic data. Fully offline and tracking-free — ideal for rapid testing.",
+    tags: [
+      "Next.js",
+      "Tailwind CSS",
+      "Plasmo",
+      "Framer Motion",
+      "Browser Extension",
+    ],
+    github: "https://github.com/vaibhavgupta5/FormUp",
+    link: "https://goformup.vercel.app/",
+    linkLabel: "View on GitHub",
+  },
+  {
     title: "IdeaTEX",
     image:
       "https://github.com/vaibhavgupta5/portfolio/blob/main/public/ideatex.jpg?raw=true",
@@ -60,7 +77,8 @@ const showcaseData = [
   },
   {
     title: "URL Shortner",
-    image: "https://github.com/vaibhavgupta5/portfolio/blob/main/public/url.jpg?raw=true",
+    image:
+      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/url.jpg?raw=true",
     description: "A simple and fast URL shortener with custom short links.",
     tags: ["Next.js", "MongoDB"],
     link: "https://oklinkify.vercel.app/",
@@ -68,8 +86,24 @@ const showcaseData = [
     github: "https://github.com/vaibhavgupta5/URL-Shortner",
   },
   {
+    title: "Angel Kids",
+    image: "/works/angelkids.png",
+    description:
+      "Website for Angel Kids Preschool, highlighting programs, admissions, and events. Freelance project with responsive design, drawing 5-6k monthly visits.",
+    tags: [
+      "WordPress",
+      "Elementor",
+      "PHP",
+      "Responsive Design",
+      "SEO Optimization",
+    ],
+    link: "https://angelkids.in/",
+    linkLabel: "Visit Site",
+  },
+  {
     title: "Kanban Board",
-    image: "https://github.com/vaibhavgupta5/portfolio/blob/main/public/kanban.jpg?raw=true",
+    image:
+      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/kanban.jpg?raw=true",
     description:
       "A drag-and-drop Kanban board built with pure HTML, CSS, and JavaScript.",
     tags: ["HTML", "CSS", "JavaScript"],
@@ -87,7 +121,6 @@ export default function WorkPageSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
-
       >
         <div className="flex items-center gap-2 font-medium mb-2">
           <Rocket size={22} />
@@ -109,13 +142,13 @@ export default function WorkPageSection() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.15 }}
             >
-              <div className="w-full md:w-1/2">
+              <div className="w-full md:w-1/2" onClick={() => window.open(item.link || item.github, "_blank")}>
                 <Image
                   src={item.image}
                   alt={item.title}
                   width={800}
                   height={500}
-                  className="rounded-xl object-cover w-full"
+                  className="rounded-xl object-cover w-full cursor-pointer"
                 />
               </div>
               <div className="w-full md:w-1/2 flex flex-col justify-between gap-1">
