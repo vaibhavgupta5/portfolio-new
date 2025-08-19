@@ -12,10 +12,56 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vaibhav Gupta",
-  description: "Full Stack Developer",
-  icons: "favicon.ico",
+  title: "Vaibhav Gupta | Full Stack Developer (MERN & Next.js)",
+  description:
+    "Vaibhav Gupta - Full Stack Developer skilled in Next.js, React, Node.js, TypeScript, MongoDB, and PostgreSQL. Experienced in building scalable SaaS platforms, healthcare applications, and AI-powered systems. Passionate about hackathons, open-source, and innovative problem solving.",
+  keywords: [
+    "Vaibhav Gupta",
+    "Full Stack Developer",
+    "Next.js Developer",
+    "MERN Stack",
+    "React Developer",
+    "Node.js Developer",
+    "TypeScript",
+    "MongoDB",
+    "PostgreSQL",
+    "Tailwind CSS",
+    "SaaS Developer",
+    "Hackathon Winner",
+    "AI-powered Healthcare",
+    "Web Development Portfolio",
+  ],
+  authors: [{ name: "Vaibhav Gupta", url: "https://github.com/vaibhavgupta5" }],
+  openGraph: {
+    title: "Vaibhav Gupta | Full Stack Developer Portfolio",
+    description:
+      "Explore the portfolio of Vaibhav Gupta, a Full Stack Developer specializing in Next.js, React, Node.js, and scalable web applications.",
+    url: "https://okvaibhav.vercel.app",
+    siteName: "Vaibhav Gupta Portfolio",
+    images: [
+      {
+        url: "https://okvaibhav.vercel.app/me.png",
+        width: 1200,
+        height: 630,
+        alt: "Vaibhav Gupta - Full Stack Developer",
+      },
+    ],
+    locale: "en_US",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vaibhav Gupta | Full Stack Developer",
+    description:
+      "Full Stack Developer skilled in Next.js, MERN, and scalable applications. Check out projects, hackathons, and portfolio.",
+    creator: "@vaixbhav_",
+    images: ["https://okvaibhav.vercel.app/me.png"],
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
+
 
 export default function RootLayout({
   children,

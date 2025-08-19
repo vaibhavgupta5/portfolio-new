@@ -6,7 +6,7 @@ import { useCurrPage } from "@/lib/store";
 import ContactSection from "./components/pages/ContactSection";
 import AnimatedSection from "./components/framer/AnimatedSection";
 import WorkPageSection from "./components/pages/WorkSection";
-import Image from "next/image";
+// import Image from "next/image";
 
 function getISTTime(): string {
   const now = new Date();
@@ -36,15 +36,9 @@ function Page() {
 
   return (
     <div className="flex flex-col w-full text-[#999999] h-full">
-      <div className="flex md:h-[12vh] h-[11vh] w-full border-[#202021] border-b-1 justify-between font-bold px-8 py-5 text-gray-800 dark:text-gray-200">
-        <Image
-          className="rounded-full  md:hidden border-2 border-[#202021]"
-          src="https://avatars.githubusercontent.com/u/109146556?v=4"
-          alt="Description"
-          width={55}
-          height={50}
-        />
-        <div className="text-sm flex justify-center items-center bg-[#141415] py-4 text-[#999999] border-[#202021] border-1 px-8 rounded-full font-semibold ">
+      <div className="flex  md:h-[12vh] h-[11vh] w-full border-[#202021] md:border-b-1 justify-between font-bold px-8 py-5 text-gray-800 dark:text-gray-200">
+      
+        <div className="text-sm flex justify-center items-center bg-[#141415] py-4 text-[#999999] border-[#202021] border-1 md:px-8 px-4 rounded-full font-semibold ">
           <Circle className="text-[#6DD33D] fill-[#6DD33D] animate-pulse p-1 mr-1" />
           <p>Open for Work</p>
         </div>
@@ -56,7 +50,7 @@ function Page() {
           </span>
         </div>
       </div>
-      <div className="flex-grow p-8">
+      <div className="flex-grow md:pt-8 pt-0 p-8 ">
         {page === "home" && <MainContainer />}
         {page === "work" && <WorkPageSection />}
         {page === "contact" && (

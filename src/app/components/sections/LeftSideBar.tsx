@@ -1,7 +1,7 @@
 'use client'
 import { useCurrPage } from '@/lib/store';
 import { ArrowUp, FileUser, Mail, User, Workflow } from 'lucide-react'
-import Image from 'next/image'
+// import Image from 'next/image'
 import React from 'react'
 
 function LeftSideBar() {
@@ -9,13 +9,16 @@ function LeftSideBar() {
   return (
                <aside className="md:w-[14%] w-full end-0 fixed md:h-screen md:sticky  border-r-1 flex md:flex-col md:items-center md:justify-center border-[#202021] top-0 bg-gray-100 md:dark:bg-[#050505] dark:bg-transparent">
               <div className="flex md:h-[95vh] h-auto w-full md:pr-8 md:flex-col justify-between items-end p-4">
-                <Image
+                {/* <Image
                   className="rounded-full hidden md:flex border-5 border-[#202021]"
                   src="https://avatars.githubusercontent.com/u/109146556?v=4"
                   alt="Description"
                   width={70}
                   height={70}
-                />
+                /> */}
+                <div className='rounded-full hidden md:flex   w-16 h-16'>
+
+                </div>
 
                 <div className="flex gap-8 md:gap-4 md:flex-col justify-center items-start md:ml-4 fixed bottom-0 md:static bg-[#0A0A0B] md:border-t-0 border-t-2 md:border-none border-dashed border-[#202021]  left-0 w-full md:w-auto z-50 py-4 md:py-0 md:bg-transparent">
                   <div  className="flex z-50 gap-4 group justify-center items-center">

@@ -47,7 +47,7 @@ function MainContainer() {
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <Image
-              src="https://media.licdn.com/dms/image/v2/D5603AQFuE6Kp5fqp0w/profile-displayphoto-shrink_800_800/profile-displayphoto-shrink_800_800/0/1731868836743?e=1755734400&v=beta&t=djoRdkX3rT_xaw18Sj_YfdUW2JALNf6LRytnn4Xbu78"
+              src="/me.png"
               alt="Vaibhav Gupta"
               width={250}
               height={250}
