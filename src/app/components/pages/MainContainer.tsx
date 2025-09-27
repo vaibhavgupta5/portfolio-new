@@ -47,7 +47,7 @@ function MainContainer() {
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <Image
-              src="/me.png"
+              src="/me3.png"
               alt="Vaibhav Gupta"
               width={250}
               height={250}
