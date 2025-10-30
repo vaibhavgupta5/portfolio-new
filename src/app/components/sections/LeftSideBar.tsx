@@ -59,7 +59,7 @@ function LeftSideBar() {
                       className={page === 'resume' ? "text-[#999999] cursor-pointer group  h-12 w-12 p-3 rounded-xl bg-[#141415] dark:text-[#999999]" : "text-[#999999] cursor-pointer group hover:bg-[#0A0A0B] border-1 border-transparent hover:border-[#202021] h-12 w-12 p-3 rounded-xl  dark:text-[#999999]"}
                       size={24}
                         onClick={() => {
-                         window.open("https://drive.google.com/file/d/13rBZ-XsTdCBmTH2qC2JDtV0QZPWJglYm/view?usp=sharing", "_blank")
+                         window.open("https://dub.sh/resume-vaibhav", "_blank")
                         }}
                     />
                     <h1 className="group-hover:text-[#999999] scale-75 bg-transparent text-transparent  hidden md:flex  group-hover:scale-100  group-hover:right-25 md:group-hover:flex transition-all ease-in-out duration-500 group-hover:bg-[#141415] p-2 px-3 rounded-xl group-hover:dark:text-white absolute right-15 ">Resume</h1>
