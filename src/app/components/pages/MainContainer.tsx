@@ -36,12 +36,13 @@ export function Counter({ end }: { end: number }) {
 
 function MainContainer() {
   const { setPage } = useCurrPage();
+  const [isHoveringContact, setIsHoveringContact] = useState(false);
   return (
     <div>
       <section id="home" className=" md:w-[90%] mx-auto  md:py-10  md:px-16">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center items-start gap-10">
           <motion.div
-            className="rounded-2xl overflow-hidden bg-[#111] p-2"
+            className="rounded-2xl overflow-hidden bg-[#111] p-2 relative"
             initial={{ opacity: 0, scale: 0.95, y: 40 }}
             whileInView={{ opacity: 1, scale: 1, y: 0 }}
             viewport={{ once: true }}
@@ -52,7 +53,14 @@ function MainContainer() {
               alt="Vaibhav Gupta"
               width={250}
               height={250}
-              className="rounded-lg object-cover"
+              className={`rounded-lg object-cover transition-opacity duration-300 ease-in-out ${isHoveringContact ? "opacity-0" : "opacity-100"}`}
+            />
+            <Image
+              src="/me4.png"
+              alt="Vaibhav Gupta"
+              width={250}
+              height={250}
+              className={`rounded-lg object-cover absolute top-2 left-2 transition-opacity duration-300 ease-in-out ${isHoveringContact ? "opacity-100" : "opacity-0"}`}
             />
           </motion.div>
 
@@ -75,10 +83,17 @@ function MainContainer() {
               <button
                 className="bg-[#141415] border border-[#202021] text-white px-8 py-3 rounded-xl flex items-center gap-2 hover:bg-transparent cursor-pointer transition"
                 onClick={() => setPage("contact")}
+                onMouseEnter={() => setIsHoveringContact(true)}
+                onMouseLeave={() => setIsHoveringContact(false)}
               >
                 <Mail size={18} /> CONTACT ME
               </button>
-              <ScheduleCallButton />
+              <div
+                onMouseEnter={() => setIsHoveringContact(true)}
+                onMouseLeave={() => setIsHoveringContact(false)}
+              >
+                <ScheduleCallButton />
+              </div>
             </div>
           </div>
         </div>

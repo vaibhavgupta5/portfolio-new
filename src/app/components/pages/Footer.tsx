@@ -19,7 +19,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="w-full relative overflow-hidden flex flex-col items-center justify-center mt-[-6vw] pb-4">
+    <footer className="w-full relative overflow-hidden flex flex-col items-center justify-center md:mt-[-6vw] mt-[-10vw] pb-4">
       <div 
         ref={ref}
         className="w-full flex justify-center items-center relative cursor-default py-10"
@@ -45,8 +45,8 @@ export default function Footer() {
         </motion.h1>
       </div>
 
-      <div className="w-full px-6 mx-auto mt-4 border-t border-[#202021] pt-6 pb-2 flex flex-col md:flex-row items-center justify-between text-xs md:text-sm text-[#999999]">
-        <p>© 2026 Vaibhav Gupta. All rights reserved.</p>
+      <div className="w-full px-6 mx-auto mt-4 border-t border-[#202021] pt-6 pb-2 flex flex-col md:flex-row items-center md:justify-between justify-center text-xs md:text-sm text-[#999999]">
+        <p className="text-center">© 2026 Vaibhav Gupta. All rights reserved.</p>
         <p className="mt-2 md:mt-0">
           Made by{" "}
           <a
