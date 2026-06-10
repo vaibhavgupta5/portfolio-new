@@ -8,6 +8,12 @@ import {
 import React from "react";
 
 function RightSideBar() {
+  const playHoverSound = () => {
+    const audio = new Audio("/click1.wav");
+    audio.currentTime = 0;
+    audio.play().catch((err) => console.debug("Hover audio failed:", err));
+  };
+
   return (
     <aside className="md:w-[14%]  w-full mb-[10vh] md:mb-0 md:h-screen md:sticky border-l-1 md:flex flex-row  md:flex-col items-center justify-center border-[#202021] top-0 bg-gray-100 dark:bg-[#050505]">
       <div className="flex md:h-[95vh] w-full md:pl-8 flex-col justify-center md:items-start p-4">
@@ -17,6 +23,7 @@ function RightSideBar() {
             onClick={() =>
               window.open("https://github.com/vaibhavgupta5", "_blank")
             }
+            onMouseEnter={playHoverSound}
           >
             <Github
               className={
@@ -30,6 +37,7 @@ function RightSideBar() {
             onClick={() =>
               window.open("https://www.linkedin.com/in/vaibhav9705/", "_blank")
             }
+            onMouseEnter={playHoverSound}
           >
             <Linkedin
               className={
@@ -44,6 +52,7 @@ function RightSideBar() {
             onClick={() =>
               window.open("https://www.instagram.com/vaixbhav._/", "_blank")
             }
+            onMouseEnter={playHoverSound}
           >
             <Instagram
               className={
@@ -58,6 +67,7 @@ function RightSideBar() {
             onClick={() =>
               window.open("https://x.com/vaixbhav_", "_blank")
             }
+            onMouseEnter={playHoverSound}
           >
             <Twitter
               className={
@@ -66,8 +76,6 @@ function RightSideBar() {
               size={24}
             />
           </div>
-
-          
         </div>
       </div>
     </aside>

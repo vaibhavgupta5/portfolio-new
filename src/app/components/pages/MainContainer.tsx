@@ -9,8 +9,8 @@ import AnimatedSection from "../framer/AnimatedSection";
 import ExperienceSection from "../sections/Experience";
 import StackSection from "../sections/MyStacks";
 import MyServices from "../sections/MyServices";
-import MyWorks from "../sections/MyWorks";
 import MyEducationSection from "../sections/MyEducation";
+import WorkPageSection from "./WorkSection";
 import { motion } from "framer-motion";
 import { useCurrPage } from "@/lib/store";
 
@@ -37,7 +37,7 @@ function MainContainer() {
   const { setPage } = useCurrPage();
   return (
     <div>
-      <section className=" md:w-[90%] mx-auto  md:py-10  md:px-16">
+      <section id="home" className=" md:w-[90%] mx-auto  md:py-10  md:px-16">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row md:items-center items-start gap-10">
           <motion.div
             className="rounded-2xl overflow-hidden bg-[#111] p-2"
@@ -108,11 +108,17 @@ function MainContainer() {
         <AnimatedSection>
           <StackSection />
         </AnimatedSection>
+      </section>
+
+      <section id="work" className="md:w-[100%] mx-auto mt-24">
+        <AnimatedSection>
+          <WorkPageSection />
+        </AnimatedSection>
+      </section>
+
+      <section className="md:w-[90%] mx-auto md:px-16 ">
         <AnimatedSection>
           <MyServices />
-        </AnimatedSection>
-        <AnimatedSection>
-          <MyWorks />
         </AnimatedSection>
         <AnimatedSection>
           <MyEducationSection />

@@ -1,82 +1,173 @@
-'use client'
-import { useCurrPage } from '@/lib/store';
-import { ArrowUp, FileUser, Mail, User, Workflow } from 'lucide-react'
-// import Image from 'next/image'
-import React from 'react'
+"use client";
+import { ArrowUp, Circle } from "lucide-react";
+import React, { useEffect, useState } from "react";
 
-function LeftSideBar() {
-    const { page, setPage } = useCurrPage();
-  return (
-               <aside className="md:w-[14%] w-full end-0 fixed md:h-screen md:sticky  border-r-1 flex md:flex-col md:items-center md:justify-center border-[#202021] top-0 bg-gray-100 md:dark:bg-[#050505] dark:bg-transparent">
-              <div className="flex md:h-[95vh] h-auto w-full md:pr-8 md:flex-col justify-between items-end p-4">
-                {/* <Image
-                  className="rounded-full hidden md:flex border-5 border-[#202021]"
-                  src="https://avatars.githubusercontent.com/u/109146556?v=4"
-                  alt="Description"
-                  width={70}
-                  height={70}
-                /> */}
-                <div className='rounded-full hidden md:flex   w-16 h-16'>
+function getISTTime(): string {
+  const now = new Date();
 
-                </div>
+  // Convert to IST (UTC+5:30)
+  const utc = now.getTime() + now.getTimezoneOffset() * 60000;
+  const ist = new Date(utc + 5.5 * 60 * 60 * 1000);
 
-                <div className="flex gap-8 md:gap-4 md:flex-col justify-center items-start md:ml-4 fixed bottom-0 md:static bg-[#0A0A0B] md:border-t-0 border-t-2 md:border-none border-dashed border-[#202021]  left-0 w-full md:w-auto z-50 py-4 md:py-0 md:bg-transparent">
-                  <div  className="flex z-50 gap-4 group justify-center items-center">
-                    <User
-                      className={page === 'home' ? "text-[#999999] cursor-pointer group  h-12 w-12 p-3 rounded-xl bg-[#141415] dark:text-[#999999]" : "text-[#999999] cursor-pointer group hover:bg-[#0A0A0B] border-1 border-transparent hover:border-[#202021] h-12 w-12 p-3 rounded-xl  dark:text-[#999999]"}
-                      size={24}
-                      onClick={() => {setPage('home')
-                        window.scrollTo({ top: 0, behavior: 'smooth' })
-                      }}
-                    />
-                    <h1  className="group-hover:text-[#999999] scale-75 bg-transparent text-transparent hidden md:flex  group-hover:scale-100  group-hover:right-25 md:group-hover:flex transition-all ease-in-out duration-500 group-hover:bg-[#141415] p-2 px-3 rounded-xl group-hover:dark:text-white absolute right-15 ">Home</h1>
-                  </div>
-                  <div className="flex gap-4 group justify-center items-center">
-                    <Workflow
-                      className={page === 'work' ? "text-[#999999] cursor-pointer group  h-12 w-12 p-3 rounded-xl bg-[#141415] dark:text-[#999999]" : "text-[#999999] cursor-pointer group hover:bg-[#0A0A0B] border-1 border-transparent hover:border-[#202021] h-12 w-12 p-3 rounded-xl  dark:text-[#999999]"}
-                      size={24}
-                        onClick={() => {setPage('work')
-                          window.scrollTo({ top: 0, behavior: 'smooth' })
-                        }}
-                    />
-                    <h1 className="group-hover:text-[#999999] scale-75 bg-transparent text-transparent   hidden md:flex group-hover:scale-100  group-hover:right-25 md:group-hover:flex transition-all ease-in-out duration-500 group-hover:bg-[#141415] p-2 px-3 rounded-xl group-hover:dark:text-white absolute right-15 ">Work</h1>
-                  </div>
+  // Format as 24-hour HH:mm:ss
+  const hours = ist.getHours().toString().padStart(2, "0");
+  const minutes = ist.getMinutes().toString().padStart(2, "0");
+  const seconds = ist.getSeconds().toString().padStart(2, "0");
 
-                  <div className="flex gap-4 group justify-center items-center">
-                    <Mail
-                      className={page === 'contact' ? "text-[#999999] cursor-pointer group  h-12 w-12 p-3 rounded-xl bg-[#141415] dark:text-[#999999]" : "text-[#999999] cursor-pointer group hover:bg-[#0A0A0B] border-1 border-transparent hover:border-[#202021] h-12 w-12 p-3 rounded-xl  dark:text-[#999999]"}
-                      size={24}
-                        onClick={() => {setPage('contact')
-                          window.scrollTo({ top: 0, behavior: 'smooth' })
-                        }}
-                    />
-                    <h1 className="group-hover:text-[#999999] scale-75 bg-transparent text-transparent  hidden md:flex  group-hover:scale-100  group-hover:right-25 md:group-hover:flex transition-all ease-in-out duration-500 group-hover:bg-[#141415] p-2 px-3 rounded-xl group-hover:dark:text-white absolute right-15 ">Contact</h1>
-                  </div>
-
-
-                   <div className="flex gap-4 group justify-center items-center">
-                    <FileUser
-                      className={page === 'resume' ? "text-[#999999] cursor-pointer group  h-12 w-12 p-3 rounded-xl bg-[#141415] dark:text-[#999999]" : "text-[#999999] cursor-pointer group hover:bg-[#0A0A0B] border-1 border-transparent hover:border-[#202021] h-12 w-12 p-3 rounded-xl  dark:text-[#999999]"}
-                      size={24}
-                        onClick={() => {
-                         window.open("https://dub.sh/resume-vaibhav", "_blank")
-                        }}
-                    />
-                    <h1 className="group-hover:text-[#999999] scale-75 bg-transparent text-transparent  hidden md:flex  group-hover:scale-100  group-hover:right-25 md:group-hover:flex transition-all ease-in-out duration-500 group-hover:bg-[#141415] p-2 px-3 rounded-xl group-hover:dark:text-white absolute right-15 ">Resume</h1>
-                  </div>
-                </div>
-                <div className="md:flex group cursor-pointer flex-col justify-center hidden  items-start ml-4"
-                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-                >
-                  <ArrowUp
-                    className="text-[#999999] dark:text-[#999999]"
-                    size={24}
-                  />
-                    <h1 className="group-hover:text-[#999999] scale-75 bg-transparent text-transparent   group-hover:scale-100  group-hover:right-20 group-hover:flex transition-all ease-in-out duration-500 group-hover:bg-[#141415] p-2 px-3 rounded-xl group-hover:dark:text-white absolute right-10 ">Top</h1>
-                </div>
-              </div>
-            </aside>
-  )
+  return `${hours}:${minutes}:${seconds}`;
 }
 
-export default LeftSideBar
+function LeftSideBar() {
+  const [time, setTime] = useState(getISTTime());
+  const [isScrolled, setIsScrolled] = useState(false);
+  const separators = ["|", "X", "@", "#", "$"];
+  const [sepIndex, setSepIndex] = useState(0);
+  const [shuffledIndices, setShuffledIndices] = useState<number[]>([]);
+
+  useEffect(() => {
+    const pipeInterval = setInterval(() => {
+      setSepIndex((prev) => (prev + 1) % separators.length);
+    }, 500);
+    return () => clearInterval(pipeInterval);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTime(getISTTime());
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const indices = Array.from({ length: 41 }, (_, i) => i);
+    for (let i = indices.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [indices[i], indices[j]] = [indices[j], indices[i]];
+    }
+    setShuffledIndices(indices);
+  }, []);
+
+  const marqueeItems = [
+    <div key="work" className="flex items-center">
+      <Circle className="text-[#6DD33D] fill-[#6DD33D] animate-pulse p-1 mr-1 w-4 h-4" />
+      <span>Open for Work</span>
+    </div>,
+      "Building Scalable Apps",
+  `Local Time (IST) ${time}`,
+  "Full Stack Developer",
+  "React & Next.js",
+  "AI & Web Enthusiast",
+
+  "CEO of console.log()",
+  "Works on my machine™",
+  "Ship now, patch later",
+  "Coffee → Code → Repeat",
+  "Chai > Documentation",
+  "Professional Bug Creator",
+  "⚡ Ctrl + S enthusiast",
+
+  "Placement arc loading...",
+  "Resume sent × 247",
+  "Waiting for recruiter reply...",
+  "Bro trust the process",
+  "Malik hire kr lo na 🥺",
+
+  "Kal karenge, pakka.",
+  "Pehle code, baad mein sleep.",
+  "Jugaad Driven Development",
+  "Mummy kehti hai engineer hu.",
+  "Ye bug meri galti nahi lagti.",
+  "Code chal gaya, sawaal mat pucho.",
+  "Aaj production nahi tutega.",
+  "Git push aur bhag.",
+  "Bhagwan bharose deployment.",
+  "Sab moh maya hai.",
+
+  "Task failed successfully.",
+  "404 Motivation Not Found.",
+  "Loading brain.exe...",
+  "Touching grass... soon™",
+  "print('hope')",
+  "Risk hai to ishq hai.",
+  "Zindagi ek infinite loop hai.",
+  "Ek aur side project kya hi bigaad dega.",
+
+  "¯\\_(ツ)_/¯",
+  "(╯°□°）╯︵ ┻━┻",
+  "┌( ಠ_ಠ)┘",
+  "🗿",
+  ];
+
+  return (
+    <aside className="md:w-[14%] w-full end-0 fixed md:h-screen md:sticky  border-r-1 flex md:flex-col md:items-center md:justify-center border-[#202021] top-0 bg-gray-100 md:dark:bg-[#050505] dark:bg-transparent">
+      <div className="flex md:h-[95vh] h-auto w-full  md:flex-col justify-between items-end p-4 pr-8 overflow-hidden relative">
+        <div className="hidden md:flex flex-grow items-center justify-end w-full relative overflow-hidden pointer-events-none mb-4">
+          <style>{`
+            @keyframes marquee {
+              0% { transform: translateX(0%); }
+              100% { transform: translateX(-50%); }
+            }
+            .animate-marquee {
+              animation: marquee 60s linear infinite;
+            }
+          `}</style>
+          <div className="relative w-8 h-full flex items-center justify-center">
+            <div className="-rotate-90 absolute flex items-center justify-center w-[200vh]">
+              <div className="flex animate-marquee w-max text-[10px] lg:text-xs text-[#999999] font-semibold tracking-wider">
+                {[...Array(2)].map((_, i) => (
+                  <div
+                    key={i}
+                    className="flex gap-8 items-center pr-8 whitespace-nowrap"
+                  >
+                    {(shuffledIndices.length > 0 ? shuffledIndices : marqueeItems.map((_, idx) => idx)).map(
+                      (itemIndex, index) => {
+                        const item = marqueeItems[itemIndex];
+                        return (
+                          <React.Fragment key={index}>
+                            {typeof item === "string" ? (
+                              <span>{item}</span>
+                            ) : (
+                              item
+                            )}
+                            <span className="inline-block w-4 text-center transition-opacity duration-200">
+                              {separators[sepIndex]}
+                            </span>
+                          </React.Fragment>
+                        );
+                      }
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          className="md:flex group cursor-pointer flex-col justify-center hidden items-center mt-auto z-10 pr-1"
+          onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+        >
+          <ArrowUp
+            className={`transition-colors duration-300 ${isScrolled ? "text-black dark:text-white" : "text-[#999999] dark:text-[#999999]"}`}
+            size={24}
+          />
+          <h1 className="group-hover:text-[#999999] scale-75 bg-transparent text-transparent   group-hover:scale-100  group-hover:right-20 group-hover:flex transition-all ease-in-out duration-500 group-hover:bg-[#141415] p-2 px-3 rounded-xl group-hover:dark:text-white absolute right-10 ">
+            Top
+          </h1>
+        </div>
+      </div>
+    </aside>
+  );
+}
+
+export default LeftSideBar;

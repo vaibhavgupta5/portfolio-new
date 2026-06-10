@@ -6,7 +6,8 @@ import { useRef } from 'react';
 
 export default function AnimatedSection({ children }: { children: React.ReactNode }) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { amount: 0.3 }); 
+  
+  const isInView = useInView(ref, { amount: 0.1 }); 
 
   return (
     <motion.div

@@ -1,0 +1,166 @@
+[
+
+  {
+    "title": "FormUp",
+    "image": "/works/formup.png",
+    "description": "Lightweight browser extension to instantly fill forms with random, realistic data. Fully offline and tracking-free — ideal for rapid testing.",
+    "tags": ["Next.js", "Tailwind CSS", "Plasmo", "Framer Motion", "Browser Extension"],
+    "github": "https://github.com/vaibhavgupta5/FormUp",
+    "link": "https://goformup.vercel.app/",
+    "linkLabel": "View on GitHub",
+    "best": true
+  },
+  {
+    "title": "Offgrid",
+    "image": "/works/offgrid.jpeg",
+    "description": "Built the frontend landing page for the Offgrid Hackathon, focusing on modern UI design, smooth animations, and responsive layout to drive participant registrations.",
+    "tags": ["Frontend", "Landing Page"],
+    "link": "https://off-grid.live",
+    "linkLabel": "Visit Site",
+    "best": true
+  },
+  {
+    "title": "MangoShare",
+    "image": "/works/mangoshare.jpeg",
+    "description": "Developed a peer-to-peer file sharing application with a companion Expo React Native app. Engineered seamless cross-platform file transfers using WebRTC.",
+    "tags": ["P2P", "Expo", "React Native", "WebRTC"],
+    "link": "https://mango-share-web.vercel.app/",
+    "linkLabel": "Live Web App",
+    "github": "https://github.com/vaibhavgupta5/MangoShare-Web",
+    "best": true
+  },
+  {
+    "title": "NpmLoad",
+    "image": "/works/npmload.jpeg",
+    "description": "Created an AI-powered CLI tool that intelligently analyzes and installs the correct npm packages based on natural language prompts, streamlining developer workflows.",
+    "tags": ["CLI", "AI", "Node.js", "npm"],
+    "link": "https://www.npmjs.com/package/npmload-cli",
+    "linkLabel": "View Package",
+    "best": true
+  },
+  {
+    "title": "DKJU",
+    "image": "/works/dkju.jpeg",
+    "description": "Built a web platform used by 2,000+ madarsas and 13,000+ students, serving one of the largest madarsa boards in Kerala. Focused on scalability, performance, and reliable data handling.",
+    "tags": ["ERP", "Full Stack", "SaaS"],
+    "link": "https://dkju.in",
+    "linkLabel": "Visit Site",
+    "best": true
+  },
+  {
+    "title": "SignalDesk",
+    "image": "/works/signaldesk.jpeg",
+    "description": "Built an AI-powered, Slack-inspired collaboration platform featuring real-time messaging, smart thread summaries, AI-driven action items, and project-based workspaces.",
+    "tags": ["Next.js", "TypeScript", "Socket.io", "MongoDB", "AI"],
+    "link": "https://chatsignaldesk.vercel.app/",
+    "linkLabel": "Live Demo",
+    "github": "https://github.com/vaibhavgupta5/SignalDesk",
+    "best": true
+  },
+  {
+    "title": "NotSingleAI",
+    "image": "/works/notsingleai.jpeg",
+    "description": "Engineered an autonomous multi-agent AI social simulation platform. User-created AI personas independently match, chat, and build relationships using scheduled orchestration and LLM-driven behavioral logic.",
+    "tags": ["AI", "LLM", "Multi-Agent", "Next.js"],
+    "link": "https://notsingleai.vercel.app/",
+    "linkLabel": "Live Demo",
+    "github": "https://github.com/vaibhavgupta5/Single-AI",
+    "best": true
+  },
+  {
+    "title": "LazyPush",
+    "image": "/works/lazypush.jpeg",
+    "description": "Developed a cloud-powered CLI tool that schedules future Git pushes, allowing developers to commit code locally and automatically push it later while preserving original commit timestamps.",
+    "tags": ["CLI", "Cloud", "Git", "Node.js"],
+    "link": "https://lazypush.vercel.app/",
+    "linkLabel": "Visit Site",
+    "github": "https://github.com/vaibhavgupta5/LazyPush",
+    "best": true
+  },
+  {
+    "title": "Rail Kavach",
+    "image": "https://github.com/vaibhavgupta5/portfolio/blob/main/public/Screenshot%202025-04-06%20111750.png?raw=true",
+    "description": "Railway safety system with AI-based animal detection and real-time alerts.",
+    "tags": ["AI", "Computer Vision", "Flask", "Next.js"],
+    "github": "https://github.com/vaibhavgupta5/RailKavach---Hack",
+    "linkLabel": "View Project",
+    "best": false
+  },
+  {
+    "title": "Endeavour Website",
+    "image": "https://github.com/vaibhavgupta5/portfolio/blob/main/public/Screenshot%202025-06-15%20142007.png?raw=true",
+    "description": "Full-stack event website with Devfolio-style team registration system.",
+    "tags": ["React", "MongoDB", "Node.js", "Tailwind"],
+    "link": "http://e-cell.in/endeavour",
+    "linkLabel": "Visit Site",
+    "best": false
+  },
+  {
+    "title": "Anonimy NGL",
+    "image": "https://github.com/vaibhavgupta5/portfolio/blob/main/public/ngl.jpg?raw=true",
+    "description": "An anonymous messaging platform inspired by NGL, built with authentication and session handling.",
+    "tags": ["Next.js", "NextAuth", "Tailwind"],
+    "link": "https://anonimy-ngl.vercel.app/",
+    "linkLabel": "Try Now",
+    "github": "https://github.com/vaibhavgupta5/Anonimy-NGL",
+    "best": false
+  },
+  {
+    "title": "IdeaTEX",
+    "image": "https://github.com/vaibhavgupta5/portfolio/blob/main/public/ideatex.jpg?raw=true",
+    "description": "Landing page for E-Cell KIET’s flagship ideathon, with smooth scroll animations and modern UI.",
+    "tags": ["React", "Framer Motion", "Tailwind"],
+    "link": "https://e-cell.in/ideatex/",
+    "linkLabel": "Visit Site",
+    "github": "https://github.com/vaibhavgupta5/ideaTEX-React",
+    "best": false
+  },
+  {
+    "title": "URL Shortner",
+    "image": "https://github.com/vaibhavgupta5/portfolio/blob/main/public/url.jpg?raw=true",
+    "description": "A simple and fast URL shortener with custom short links.",
+    "tags": ["Next.js", "MongoDB"],
+    "link": "https://oklinkify.vercel.app/",
+    "linkLabel": "Try Now",
+    "github": "https://github.com/vaibhavgupta5/URL-Shortner",
+    "best": false
+  },
+  {
+    "title": "Angel Kids",
+    "image": "/works/angelkids.png",
+    "description": "Website for Angel Kids Preschool, highlighting programs, admissions, and events. Freelance project with responsive design, drawing 5-6k monthly visits.",
+    "tags": ["WordPress", "Elementor", "PHP", "Responsive Design", "SEO Optimization"],
+    "link": "https://angelkids.in/",
+    "linkLabel": "Visit Site",
+    "best": false
+  },
+  {
+    "title": "Kanban Board",
+    "image": "https://github.com/vaibhavgupta5/portfolio/blob/main/public/kanban.jpg?raw=true",
+    "description": "A drag-and-drop Kanban board built with pure HTML, CSS, and JavaScript.",
+    "tags": ["HTML", "CSS", "JavaScript"],
+    "link": "https://kanban-vaibhavgupta5.netlify.app/",
+    "linkLabel": "View Project",
+    "github": "https://github.com/vaibhavgupta5/KanBan-Board---JS",
+    "best": false
+  },
+  {
+    "title": "Personal Portfolio",
+    "image": "/works/portfolio.jpeg",
+    "description": "Designed and developed a highly interactive, minimalist personal portfolio website featuring custom Framer Motion animations and dynamic theming.",
+    "tags": ["Next.js", "Tailwind", "React"],
+    "link": "https://okvaibhav.xyz/",
+    "linkLabel": "Visit Site",
+    "best": false
+  },
+    {
+    "title": "AI Health Monitoring",
+    "image": "https://github.com/vaibhavgupta5/portfolio/blob/main/public/carelink.jpg?raw=true",
+    "description": "Real-time health dashboard with wearable data, AI predictions, and file uploads.",
+    "tags": ["Next.js", "Socket.io", "MongoDB", "Healthcare"],
+    "link": "https://carelink-xyy.vercel.app",
+    "github": "https://github.com/vaibhavgupta5/Patient_Dashboard",
+    "linkLabel": "Live Demo",
+    "best": false
+  }
+]

@@ -1,7 +1,7 @@
 'use client';
 
 import { useRef, useState } from 'react';
-import { Mail, FileUser } from 'lucide-react';
+import {  FileUser, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import ScheduleCallButton from '../ui/ScheduleCallButton';
@@ -77,7 +77,6 @@ export default function ContactSection() {
         transition={{ duration: 0.6 }}
       >
         <h2 className="text-2xl font-bold flex items-center gap-2">
-          <Mail size={22} />
           <p className='flex md:hidden'>Contact Me</p>
           <p className='hidden md:flex'>I Love to hear from you.</p>
           

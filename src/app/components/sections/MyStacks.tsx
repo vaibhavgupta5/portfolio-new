@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Layers3, ArrowRight } from "lucide-react";
+import {  ArrowRight } from "lucide-react";
 import Image from "next/image";
 
 const tools = [
@@ -97,7 +97,6 @@ export default function StackSection() {
         transition={{ duration: 0.6 }}
       >
         <div className="flex items-center gap-2 font-medium mb-2">
-          <Layers3 size={22} />
           <h2 className="text-2xl font-bold">My Stacks</h2>
         </div>
         <p className="text-[#999999] font-medium text-sm ">

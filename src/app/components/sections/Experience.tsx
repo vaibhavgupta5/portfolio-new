@@ -1,20 +1,28 @@
 "use client";
 
-import { Briefcase } from "lucide-react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
 const experienceData = [
   {
-    company: "Longani Consulting",
-    type: "Consulting Firm",
-    website: "#", // Replace with correct URL if different
+    company: "Longani Consulting (giani.ai)",
+    type: "Remote / UAE-based",
+    website: "https://giani.ai",
     duration: "Jun 2025 - Present",
-
-    role: "Frontend Developer",
+    role: "Full Stack Engineer",
     description:
-      "Currently developing a PowerPoint add-in and customer dashboard using React and Next.js, with a focus on scalability, performance, and intuitive UI/UX.",
-      logo: "https://wellfound.com/cdn-cgi/image/width=140,height=140,fit=scale-down,gravity=0.5x0.5,quality=90,format=auto/https://photos.wellfound.com/startups/i/10491784-950de72d7e85dbb71458ebd2455e0a07-medium_jpg.jpg?buster=1744453647", // Optional
+      "Developed a full-stack web application and a production-ready PowerPoint Add-in using Office.js, TypeScript, and Flask. Implemented Generative AI (RAG-based) solutions for document intelligence, improving client productivity by 40%.",
+    logo: "https://wellfound.com/cdn-cgi/image/width=140,height=140,fit=scale-down,gravity=0.5x0.5,quality=90,format=auto/https://photos.wellfound.com/startups/i/10491784-950de72d7e85dbb71458ebd2455e0a07-medium_jpg.jpg?buster=1744453647",
+  },
+  {
+    company: "Direct AI (directai.app)",
+    type: "Remote / UK-based",
+    website: "https://directai.app",
+    duration: "Nov 2025 - Dec 2025",
+    role: "Full Stack Intern",
+    description:
+      "Built and deployed a production-ready AI video generation SaaS using Next.js, Node.js, and Redis. Developed end-to-end workflows combining AI-generated media, and improved processing speed and reliability via concurrent job queues and rate limiting.",
+    logo: "https://media.licdn.com/dms/image/v2/D4D0BAQHG5zf93SWGgA/company-logo_100_100/B4DZgAcj6DH0AU-/0/1752354145248?e=1782950400&v=beta&t=hYFWeFYQFEirDdoPcloJfusQmZqfXbItsiIjp40DKks",
   },
   {
     company: "ECell KIET",
@@ -27,16 +35,15 @@ const experienceData = [
     logo: "https://firebasestorage.googleapis.com/v0/b/endevaour-2023.appspot.com/o/webassets%2Fblack%20logo%20br.png?alt=media&token=d45e4438-bc54-47dd-9d9c-14f4d41991d1", // Optional
   },
   {
-  company: "Freelance",
-  type: "Client Projects",
-  website: "https://github.com/vaibhavgupta5", // or your portfolio link
-  duration: "Jan 2024 - Present",
-  role: "Full Stack Developer",
-  description:
-    "Completed 25+ freelance projects across domains like e-commerce, landing pages, admin panels, and dynamic web apps using MERN stack and Next.js. Delivered high-performance, fully responsive solutions tailored to client needs.",
-  logo: "https://cdn-icons-png.flaticon.com/512/921/921347.png", // Optional generic freelance icon
-}
-
+    company: "Freelance",
+    type: "Client Projects",
+    website: "https://github.com/vaibhavgupta5", // or your portfolio link
+    duration: "Jan 2024 - Present",
+    role: "Full Stack Developer",
+    description:
+      "Completed 25+ freelance projects across domains like e-commerce, landing pages, admin panels, and dynamic web apps using MERN stack and Next.js. Delivered high-performance, fully responsive solutions tailored to client needs.",
+    logo: "https://cdn-icons-png.flaticon.com/512/921/921347.png", // Optional generic freelance icon
+  },
 ];
 
 export default function ExperienceSection() {
@@ -49,14 +56,13 @@ export default function ExperienceSection() {
         transition={{ duration: 0.6 }}
       >
         <div className="flex items-center gap-2 font-medium mb-2">
-          <Briefcase size={22} />
           <h2 className="text-2xl font-bold">My Experience</h2>
         </div>
         <p className="text-[#999999] font-medium text-sm ">
-Worked across diverse environments to build scalable web apps.        </p>
+          Worked across diverse environments to build scalable web apps.{" "}
+        </p>
 
-
-<div className="w-full border-b border-dashed border-[#202021] my-6"></div>
+        <div className="w-full border-b border-dashed border-[#202021] my-6"></div>
 
         <div className="space-y-6">
           {experienceData.map((exp, i) => (
@@ -70,20 +76,22 @@ Worked across diverse environments to build scalable web apps.        </p>
             >
               <div className="flex md:flex-row flex-col  justify-between items-center">
                 <div className="flex md:w-[70%] w-full items-center gap-3">
-                  <div className="md:w-[10%] w-[20%] bg-white  rounded-xl flex items-center justify-center">
-                    {exp.logo ? <Image
-                      src={exp.logo || "/default-logo.png"}
-                      alt={`${exp.company} logo`}
-                      className="m-0 p-0 rounded-xl"
-                      width={500}
-                      height={500}
-                    /> : 
-                    <p className="text-2xl font-bold text-[#141415]">
+                  <div className="md:w-[10%] w-[20%]     flex items-center justify-center">
+                    {exp.logo ? (
+                      <Image
+                        src={exp.logo || "/default-logo.png"}
+                        alt={`${exp.company} logo`}
+                        className="m-0 p-0 bg-white  rounded-xl"
+                        width={500}
+                        height={500}
+                      />
+                    ) : (
+                      <p className="text-2xl font-bold text-[#141415]">
                         {exp.company.charAt(0).toUpperCase()}
-                    </p>
-                    }
+                      </p>
+                    )}
                   </div>
-                  <div >
+                  <div>
                     <div className="font-semibold    text-lg">
                       {exp.company}
                     </div>
@@ -98,8 +106,10 @@ Worked across diverse environments to build scalable web apps.        </p>
               </div>
 
               <div className="bg-[#050505] border border-[#202021]  rounded-xl px-4 py-3">
-                <div className="font-semibold mb-1 text-white/80 text-md">{exp.role}</div>
-                <div className="text-[#999999] text-sm leading-relaxed">
+                <div className="font-semibold mb-1 text-white/80 text-md">
+                  {exp.role}
+                </div>
+                <div className="text-[#999999] text-sm leading-relaxed whitespace-pre-line space-y-2">
                   {exp.description}
                 </div>
               </div>

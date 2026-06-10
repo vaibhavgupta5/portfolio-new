@@ -1,8 +1,7 @@
 "use client";
 
-import { ArrowRight, Figma, LayoutDashboard, Link, Puzzle, Sparkles } from "lucide-react";
+import { ArrowRight, Figma, LayoutDashboard, Link, Puzzle } from "lucide-react";
 import { motion } from "framer-motion";
-import { useCurrPage } from "@/lib/store";
 
 const services = [
   {
@@ -12,7 +11,7 @@ const services = [
   },
   {
     title: "Frontend Development",
-    description: "Building fast, responsive user interfaces.",
+    description: "Building fast, responsive user, animated interfaces.",
     icon: <LayoutDashboard />,
   },
   {
@@ -28,7 +27,17 @@ const services = [
 ];
 
 export default function MyServices() {
-    const {setPage} = useCurrPage();
+
+    const playHoverSound = () => {
+      const audio = new Audio("/click1.wav");
+      audio.play().catch(() => {});
+    };
+
+    const playClickSound = () => {
+      const audio = new Audio("/click2.wav");
+      audio.play().catch(() => {});
+    };
+
   return (
     <section className="text-white pt-30 md:px-4 max-w-4xl mx-auto">
       <motion.div
@@ -38,7 +47,6 @@ export default function MyServices() {
         transition={{ duration: 0.6 }}
       >
         <div className="flex items-center gap-2 font-medium mb-2">
-          <Sparkles size={22} />
           <h2 className="text-2xl font-bold">My Services</h2>
         </div>
         <p className="text-[#999999] font-medium text-sm">
@@ -70,7 +78,8 @@ export default function MyServices() {
                   {service.description}
                 </div>
                 <div className=" flex w-full rounded-lg text-sm gap-2 items-center justify-between group-hover:bg-[#141415] transition-all duration-300 p-3 cursor-pointer" 
-                onClick={() => setPage('contact')}
+                onClick={() => { playClickSound(); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
+                onMouseEnter={playHoverSound}
                 >
                   <p>I want this service!</p>
                   <ArrowRight size={16} className="text-[#999999] transition-all  duration-500 group-hover:rotate-315 " />

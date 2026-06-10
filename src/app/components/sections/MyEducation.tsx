@@ -1,6 +1,5 @@
 'use client';
 
-import { GraduationCap } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 const educationData = [
@@ -34,7 +33,6 @@ export default function MyEducationSection() {
         transition={{ duration: 0.6 }}
       >
         <div className="flex items-center gap-2 font-medium mb-2">
-          <GraduationCap size={22} />
           <h2 className="text-2xl font-bold">My Education</h2>
         </div>
         <p className="text-[#999999] font-medium text-sm">

@@ -8,6 +8,11 @@ export default function ScheduleCallButton() {
   const [text, setText] = useState(originalText);
 
   const handleMouseEnter = () => {
+    // Play hover sound
+    const audio = new Audio("/click1.wav");
+    audio.currentTime = 0;
+    audio.play().catch((err) => console.debug("Hover audio failed:", err));
+
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     let iteration = 0;
 

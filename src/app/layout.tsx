@@ -5,6 +5,8 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import LeftSideBar from "./components/sections/LeftSideBar";
 import RightSideBar from "./components/sections/RightSideBar";
+import ClickSound from "./components/ui/ClickSound";
+import LocomotiveScrollWrapper from "./components/ui/LocomotiveScrollWrapper";
 
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
@@ -12,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vaibhav Gupta | Full Stack Developer (MERN & Next.js)",
+  title: "Vaibhav Gupta | Full Stack Developer",
   description:
     "Vaibhav Gupta - Full Stack Developer skilled in Next.js, React, Node.js, TypeScript, MongoDB, and PostgreSQL. Experienced in building scalable SaaS platforms, healthcare applications, and AI-powered systems. Passionate about hackathons, open-source, and innovative problem solving.",
   keywords: [
@@ -71,15 +73,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`$ ${geistMono.className} antialiased`}>
-        <ThemeProvider attribute="class">
-          <div className="flex md:flex-row flex-col w-full min-h-screen">
-            <LeftSideBar />
+        <LocomotiveScrollWrapper>
+          <ThemeProvider attribute="class">
+            <div className="flex md:flex-row flex-col w-full min-h-screen">
+              <LeftSideBar />
 
-            <main className="md:w-[72%] min-h-screen">{children}</main>
+              <main className="md:w-[72%] min-h-screen">{children}</main>
 
-            <RightSideBar />
-          </div>
-        </ThemeProvider>
+              <RightSideBar />
+            </div>
+            <ClickSound />
+          </ThemeProvider>
+        </LocomotiveScrollWrapper>
       </body>
     </html>
   );

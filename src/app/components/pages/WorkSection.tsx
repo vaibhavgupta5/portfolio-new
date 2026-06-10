@@ -1,129 +1,38 @@
 "use client";
 
-import { Github, Link, Rocket } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, Github, Link } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
+import { useState } from "react";
+import AnimatedSection from "../framer/AnimatedSection";
+import DetailedProject from "../sections/DetailedProject";
 
-const showcaseData = [
-  {
-    title: "Endeavour Website",
-    image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/Screenshot%202025-06-15%20142007.png?raw=true",
-    description:
-      "Full-stack event website with Devfolio-style team registration system.",
-    tags: ["React", "MongoDB", "Node.js", "Tailwind"],
-    link: "http://e-cell.in/endeavour",
-    linkLabel: "Visit Site",
-  },
-  {
-    title: "AI Health Monitoring",
-    image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/carelink.jpg?raw=true",
-    description:
-      "Real-time health dashboard with wearable data, AI predictions, and file uploads.",
-    tags: ["Next.js", "Socket.io", "MongoDB", "Healthcare"],
-    link: "https://carelink-xyy.vercel.app",
-    github: "https://github.com/vaibhavgupta5/Patient_Dashboard",
-    linkLabel: "Live Demo",
-  },
-  {
-    title: "Rail Kavach",
-    image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/Screenshot%202025-04-06%20111750.png?raw=true",
-    description:
-      "Railway safety system with AI-based animal detection and real-time alerts.",
-    tags: ["AI", "Computer Vision", "Flask", "Next.js"],
-    github: "https://github.com/vaibhavgupta5/RailKavach---Hack",
-    linkLabel: "View Project",
-  },
-  {
-    title: "Anonimy NGL",
-    image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/ngl.jpg?raw=true",
-    description:
-      "An anonymous messaging platform inspired by NGL, built with authentication and session handling.",
-    tags: ["Next.js", "NextAuth", "Tailwind"],
-    link: "https://anonimy-ngl.vercel.app/",
-    linkLabel: "Try Now",
-    github: "https://github.com/vaibhavgupta5/Anonimy-NGL",
-  },
-  {
-    title: "FormUp",
-    image:
-      "/works/formup.png",
-    description:
-      "Lightweight browser extension to instantly fill forms with random, realistic data. Fully offline and tracking-free — ideal for rapid testing.",
-    tags: [
-      "Next.js",
-      "Tailwind CSS",
-      "Plasmo",
-      "Framer Motion",
-      "Browser Extension",
-    ],
-    github: "https://github.com/vaibhavgupta5/FormUp",
-    link: "https://goformup.vercel.app/",
-    linkLabel: "View on GitHub",
-  },
-  {
-    title: "IdeaTEX",
-    image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/ideatex.jpg?raw=true",
-    description:
-      "Landing page for E-Cell KIET’s flagship ideathon, with smooth scroll animations and modern UI.",
-    tags: ["React", "Framer Motion", "Tailwind"],
-    link: "https://e-cell.in/ideatex/",
-    linkLabel: "Visit Site",
-    github: "https://github.com/vaibhavgupta5/ideaTEX-React",
-  },
-  {
-    title: "URL Shortner",
-    image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/url.jpg?raw=true",
-    description: "A simple and fast URL shortener with custom short links.",
-    tags: ["Next.js", "MongoDB"],
-    link: "https://oklinkify.vercel.app/",
-    linkLabel: "Try Now",
-    github: "https://github.com/vaibhavgupta5/URL-Shortner",
-  },
-  {
-    title: "Angel Kids",
-    image: "/works/angelkids.png",
-    description:
-      "Website for Angel Kids Preschool, highlighting programs, admissions, and events. Freelance project with responsive design, drawing 5-6k monthly visits.",
-    tags: [
-      "WordPress",
-      "Elementor",
-      "PHP",
-      "Responsive Design",
-      "SEO Optimization",
-    ],
-    link: "https://angelkids.in/",
-    linkLabel: "Visit Site",
-  },
-  {
-    title: "Kanban Board",
-    image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/kanban.jpg?raw=true",
-    description:
-      "A drag-and-drop Kanban board built with pure HTML, CSS, and JavaScript.",
-    tags: ["HTML", "CSS", "JavaScript"],
-    link: "https://kanban-vaibhavgupta5.netlify.app/",
-    linkLabel: "View Project",
-    github: "https://github.com/vaibhavgupta5/KanBan-Board---JS",
-  },
-];
-
+import showcaseData from "@/data/showcaseData.json";
 export default function WorkPageSection() {
+  const [showAll, setShowAll] = useState(false);
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
+  const displayedData = showAll ? showcaseData : showcaseData.filter((item) => item.best);
+
+  const handleLinkClick = (url: string) => {
+    const audio = new Audio("/click2.wav");
+    audio.play().catch(() => {});
+    window.open(url, "_blank");
+  };
+
+  const handleOpenProject = (index: number) => {
+    const audio = new Audio("/click2.wav");
+    audio.play().catch(() => {});
+    setSelectedProjectIndex(index);
+  };
+
   return (
     <section className="md:w-[90%] text-white mx-auto md:py-10 md:px-16">
       <motion.div
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
       >
         <div className="flex items-center gap-2 font-medium mb-2">
-          <Rocket size={22} />
           <h2 className="text-2xl font-bold">Dev Work Showcase</h2>
         </div>
         <p className="text-[#999999] font-medium text-sm">
@@ -133,16 +42,16 @@ export default function WorkPageSection() {
         <div className="w-full border-b border-dashed border-[#202021] my-6"></div>
 
         <div className="space-y-2">
-          {showcaseData.map((item, i) => (
+          {displayedData.map((item, i) => (
             <motion.div
               key={i}
               className="bg-[#0A0A0B] border  justify-center items-center h-full border-[#202021] rounded-2xl p-4 flex flex-col md:flex-row gap-4"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.15 }}
+              transition={{ duration: 0.4, delay: i * 0.05 }}
             >
-              <div className="w-full md:w-1/2" onClick={() => window.open(item.link || item.github, "_blank")}>
+              <div className="w-full md:w-1/2 cursor-pointer" onClick={() => handleOpenProject(i)}>
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -154,17 +63,17 @@ export default function WorkPageSection() {
               <div className="w-full md:w-1/2 flex flex-col justify-between gap-1">
                 <div>
                   <div className="text-xl flex items-center cursor-pointer gap-2 text-white/80 font-semibold">
-                    <p className="mr-2">{item.title}</p>
+                    <p className="mr-2 hover:underline transition-all" onClick={() => handleOpenProject(i)}>{item.title}</p>
                     {item.github && (
                       <Github
-                        className="p-1 border border-[#202021] text-[#999999] duration-500 hover:bg-black bg-[#141415] rounded-full"
-                        onClick={() => window.open(item.github, "_blank")}
+                        className="cursor-pointer p-1 border border-[#202021] text-[#999999] duration-500 hover:bg-black bg-[#141415] rounded-full"
+                        onClick={(e) => { e.stopPropagation(); handleLinkClick(item.github || ""); }}
                       />
                     )}
                     {item.link && (
                       <Link
-                        className="p-1 text-[#999999] border border-[#202021] duration-500 hover:bg-black bg-[#141415] rounded-full"
-                        onClick={() => window.open(item.link, "_blank")}
+                        className="cursor-pointer p-1 text-[#999999] border border-[#202021] duration-500 hover:bg-black bg-[#141415] rounded-full"
+                        onClick={(e) => { e.stopPropagation(); handleLinkClick(item.link || ""); }}
                       ></Link>
                     )}
                   </div>
@@ -183,8 +92,31 @@ export default function WorkPageSection() {
               </div>
             </motion.div>
           ))}
+          <AnimatedSection>
+            <div
+              className=" flex w-full rounded-lg text-sm gap-2 items-center group justify-between group-hover:bg-[#141415] transition-all duration-300 p-3 cursor-pointer mt-4"
+              onClick={() => setShowAll(!showAll)}
+            >
+              <p>{showAll ? "Show less" : "Load all projects"}</p>
+              <ArrowRight
+                size={16}
+                className={`text-[#999999] transition-all duration-500 ${showAll ? "rotate-270" : "group-hover:rotate-315"}`}
+              />
+            </div>
+          </AnimatedSection>
         </div>
       </motion.div>
+
+      <AnimatePresence>
+        {selectedProjectIndex !== null && (
+          <DetailedProject
+            project={displayedData[selectedProjectIndex]}
+            onClose={() => setSelectedProjectIndex(null)}
+            onNext={() => setSelectedProjectIndex((prev) => (prev! + 1) % displayedData.length)}
+            onPrev={() => setSelectedProjectIndex((prev) => (prev! - 1 + displayedData.length) % displayedData.length)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }

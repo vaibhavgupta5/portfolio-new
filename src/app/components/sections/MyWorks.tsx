@@ -1,76 +1,30 @@
 "use client";
 
-import { ArrowRight, Github, Link, Rocket } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, Github, Link } from "lucide-react";
+import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useCurrPage } from "@/lib/store";
+import { useState } from "react";
 import AnimatedSection from "../framer/AnimatedSection";
+import DetailedProject from "./DetailedProject";
 
-const showcaseData = [
-  {
-    title: "Endeavour Website",
-    image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/Screenshot%202025-06-15%20142007.png?raw=true", // Replace with actual preview if available
-    description:
-      "Full-stack event website with Devfolio-style team registration system.",
-    tags: ["React", "MongoDB", "Node.js", "Tailwind"],
-    link: "http://e-cell.in/endeavour",
-    linkLabel: "Visit Site",
-  },
-  {
-    title: "AI Health Monitoring",
-    image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/carelink.jpg?raw=true",
-    description:
-      "Real-time health dashboard with wearable data, AI predictions, and file uploads.",
-    tags: ["Next.js", "Socket.io", "MongoDB", "Healthcare"],
-    link: "https://carelink-xyy.vercel.app",
-    github: "https://github.com/vaibhavgupta5/Patient_Dashboard",
-    linkLabel: "Live Demo",
-  },
-  {
-    title: "Rail Kavach",
-    image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/Screenshot%202025-04-06%20111750.png?raw=true",
-    description:
-      "Railway safety system with AI-based animal detection and real-time alerts.",
-    tags: ["AI", "Computer Vision", "Flask", "Next.js"],
-    link: "https://rail-web.vercel.app/",
-    github: "https://github.com/vaibhavgupta5/RailKavach---Hack",
-    linkLabel: "View Project",
-  },
- {
-    title: "FormUp",
-    image:
-      "/works/formup.png",
-    description:
-      "Lightweight browser extension to instantly fill forms with random, realistic data. Ideal for rapid testing.",
-    tags: [
-      "Next.js",
-      "Tailwind CSS",
-      "Plasmo",
-      "Framer Motion",
-      "Browser Extension",
-    ],
-    github: "https://github.com/vaibhavgupta5/FormUp",
-    link: "https://goformup.vercel.app/",
-    linkLabel: "View on GitHub",
-  },
-  {
-    title: "IdeaTEX",
-    image:
-      "https://github.com/vaibhavgupta5/portfolio/blob/main/public/ideatex.jpg?raw=true",
-    description:
-      "Landing page for E-Cell KIET’s flagship ideathon, with smooth scroll animations and modern UI.",
-    tags: ["React", "Framer Motion", "Tailwind"],
-    link: "https://e-cell.in/ideatex/",
-    linkLabel: "Visit Site",
-    github: "https://github.com/vaibhavgupta5/ideaTEX-React",
-  },
-];
-
+import showcaseData from "@/data/showcaseData.json";
 export default function MyWorks() {
-  const { setPage } = useCurrPage();
+  const [showAll, setShowAll] = useState(false);
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState<number | null>(null);
+  const displayedData = showAll ? showcaseData : showcaseData.filter((item) => item.best);
+
+  const handleLinkClick = (url: string) => {
+    const audio = new Audio("/click2.wav");
+    audio.play().catch(() => {});
+    window.open(url, "_blank");
+  };
+
+  const handleOpenProject = (index: number) => {
+    const audio = new Audio("/click2.wav");
+    audio.play().catch(() => {});
+    setSelectedProjectIndex(index);
+  };
+
   return (
     <section className="text-white pt-30 md:px-4 max-w-4xl mx-auto">
       <motion.div
@@ -80,7 +34,6 @@ export default function MyWorks() {
         transition={{ duration: 0.6 }}
       >
         <div className="flex items-center gap-2 font-medium mb-2">
-          <Rocket size={22} />
           <h2 className="text-2xl font-bold">Dev Work Showcase</h2>
         </div>
         <p className="text-[#999999] font-medium text-sm">
@@ -90,7 +43,7 @@ export default function MyWorks() {
         <div className="w-full border-b border-dashed border-[#202021] my-6"></div>
 
         <div className="space-y-2">
-          {showcaseData.map((item, i) => (
+          {displayedData.map((item, i) => (
             <motion.div
               key={i}
               className="bg-[#0A0A0B] border  justify-center items-center h-full border-[#202021] rounded-2xl p-4 flex flex-col md:flex-row gap-4"
@@ -99,7 +52,7 @@ export default function MyWorks() {
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.15 }}
             >
-              <div className="w-full md:w-1/2">
+              <div className="w-full md:w-1/2 cursor-pointer" onClick={() => handleOpenProject(i)}>
                 <Image
                   src={item.image}
                   alt={item.title}
@@ -111,17 +64,17 @@ export default function MyWorks() {
               <div className="w-full md:w-1/2 flex flex-col justify-between gap-1">
                 <div>
                   <div className="text-xl flex items-center cursor-pointer gap-2 text-white/80 font-semibold">
-                    <p className="mr-2">{item.title}</p>
+                    <p className="mr-2 hover:underline transition-all" onClick={() => handleOpenProject(i)}>{item.title}</p>
                     {item.github && (
                       <Github
-                        className="p-1 border border-[#202021] text-[#999999] duration-500 hover:bg-black bg-[#141415] rounded-full"
-                        onClick={() => window.open(item.github, "_blank")}
+                        className="cursor-pointer p-1 border border-[#202021] text-[#999999] duration-500 hover:bg-black bg-[#141415] rounded-full"
+                        onClick={(e) => { e.stopPropagation(); handleLinkClick(item.github || ""); }}
                       />
                     )}
                     {item.link && (
                       <Link
-                        className="p-1 text-[#999999] border border-[#202021] duration-500 hover:bg-black bg-[#141415] rounded-full"
-                        onClick={() => window.open(item.link, "_blank")}
+                        className="cursor-pointer p-1 text-[#999999] border border-[#202021] duration-500 hover:bg-black bg-[#141415] rounded-full"
+                        onClick={(e) => { e.stopPropagation(); handleLinkClick(item.link || ""); }}
                       ></Link>
                     )}
                   </div>
@@ -143,19 +96,28 @@ export default function MyWorks() {
           <AnimatedSection>
             <div
               className=" flex w-full rounded-lg text-sm gap-2 items-center group justify-between group-hover:bg-[#141415] transition-all duration-300 p-3 cursor-pointer mt-4"
-              onClick={() => {setPage("work")
-                window.scrollTo({ top: 0, behavior: 'smooth' })
-              }}
+              onClick={() => setShowAll(!showAll)}
             >
-              <p>View more work!</p>
+              <p>{showAll ? "Show less" : "Show all"}</p>
               <ArrowRight
                 size={16}
-                className="text-[#999999] transition-all  duration-500 group-hover:rotate-315 "
+                className={`text-[#999999] transition-all duration-500 ${showAll ? "rotate-270" : "group-hover:rotate-315"}`}
               />
             </div>
           </AnimatedSection>
         </div>
       </motion.div>
+
+      <AnimatePresence>
+        {selectedProjectIndex !== null && (
+          <DetailedProject
+            project={displayedData[selectedProjectIndex]}
+            onClose={() => setSelectedProjectIndex(null)}
+            onNext={() => setSelectedProjectIndex((prev) => (prev! + 1) % displayedData.length)}
+            onPrev={() => setSelectedProjectIndex((prev) => (prev! - 1 + displayedData.length) % displayedData.length)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 }
