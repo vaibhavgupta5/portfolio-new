@@ -56,7 +56,7 @@ function MainContainer() {
               className={`rounded-lg object-cover transition-opacity duration-300 ease-in-out ${isHoveringContact ? "opacity-0" : "opacity-100"}`}
             />
             <Image
-              src="/me4.png"
+              src="/me4_aligned.png"
               alt="Vaibhav Gupta"
               width={250}
               height={250}
