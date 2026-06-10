@@ -81,7 +81,8 @@ function LeftSideBar() {
   "Waiting for recruiter reply...",
   "Bro trust the process",
   "Malik hire kr lo na 🥺",
-
+  "TMKC",
+"Andi Bandi Shandi",
   "Kal karenge, pakka.",
   "Pehle code, baad mein sleep.",
   "Jugaad Driven Development",
