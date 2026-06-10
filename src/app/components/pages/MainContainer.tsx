@@ -8,6 +8,7 @@ import ScheduleCallButton from "../ui/ScheduleCallButton";
 import AnimatedSection from "../framer/AnimatedSection";
 import ExperienceSection from "../sections/Experience";
 import StackSection from "../sections/MyStacks";
+import GithubMap from "../sections/GithubMap";
 import MyServices from "../sections/MyServices";
 import MyEducationSection from "../sections/MyEducation";
 import WorkPageSection from "./WorkSection";
@@ -101,7 +102,9 @@ function MainContainer() {
             </div>
           </div>
         </AnimatedSection>
-
+        <AnimatedSection>
+          <GithubMap />
+        </AnimatedSection>
         <AnimatedSection>
           <ExperienceSection />
         </AnimatedSection>
