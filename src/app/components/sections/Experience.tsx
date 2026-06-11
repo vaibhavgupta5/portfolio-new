@@ -32,7 +32,7 @@ const experienceData = [
     role: "Full Stack Developer",
     description:
       "Built a Devfolio-like registration system from scratch, enhancing user experience and automating workflows. Scaled to support 2,000+ participants.",
-    logo: "https://firebasestorage.googleapis.com/v0/b/endevaour-2023.appspot.com/o/webassets%2Fblack%20logo%20br.png?alt=media&token=d45e4438-bc54-47dd-9d9c-14f4d41991d1", // Optional
+    logo: "/ecell.png", // Optional
   },
   {
     company: "Freelance",
