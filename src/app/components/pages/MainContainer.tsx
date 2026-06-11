@@ -51,16 +51,16 @@ function MainContainer() {
             <Image
               src="/me3.png"
               alt="Vaibhav Gupta"
-              width={250}
-              height={250}
-              className={`rounded-lg object-cover transition-opacity duration-300 ease-in-out ${isHoveringContact ? "opacity-0" : "opacity-100"}`}
+              width={400}
+              height={300}
+              className={`rounded-lg object-cover w-[400px] h-[300px] md:w-[250px] md:h-[250px] transition-opacity duration-300 ease-in-out ${isHoveringContact ? "opacity-0" : "opacity-100"}`}
             />
             <Image
               src="/me4_aligned.png"
               alt="Vaibhav Gupta"
-              width={250}
-              height={250}
-              className={`rounded-lg object-cover absolute top-2 left-2 transition-opacity duration-300 ease-in-out ${isHoveringContact ? "opacity-100" : "opacity-0"}`}
+              width={400}
+              height={300}
+              className={`rounded-lg object-cover absolute top-2 left-2 w-[300px] h-[300px] md:w-[250px] md:h-[250px] transition-op acity duration-300 ease-in-out ${isHoveringContact ? "opacity-100" : "opacity-0"}`}
             />
           </motion.div>
 
@@ -82,7 +82,15 @@ function MainContainer() {
             <div className="flex gap-4 flex-wrap">
               <button
                 className="bg-[#141415] border border-[#202021] text-white px-8 py-3 rounded-xl flex items-center gap-2 hover:bg-transparent cursor-pointer transition"
-                onClick={() => setPage("contact")}
+                onClick={() => {
+                  const audio = new Audio("/click2.wav");
+                  audio.play().catch(() => {});
+                  setPage("contact");
+                  const section = document.getElementById("contact");
+                  if (section) {
+                    section.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
                 onMouseEnter={() => setIsHoveringContact(true)}
                 onMouseLeave={() => setIsHoveringContact(false)}
               >
