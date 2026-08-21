@@ -22,7 +22,7 @@ const experienceData = [
     role: "Full Stack Intern",
     description:
       "Built and deployed a production-ready AI video generation SaaS using Next.js, Node.js, and Redis. Developed end-to-end workflows combining AI-generated media, and improved processing speed and reliability via concurrent job queues and rate limiting.",
-    logo: "https://media.licdn.com/dms/image/v2/D4D0BAQHG5zf93SWGgA/company-logo_100_100/B4DZgAcj6DH0AU-/0/1752354145248?e=1782950400&v=beta&t=hYFWeFYQFEirDdoPcloJfusQmZqfXbItsiIjp40DKks",
+    logo: "https://media.licdn.com/dms/image/v2/D4D0BAQHG5zf93SWGgA/company-logo_100_100/B4DZgAcj6DH0AU-/0/1752354145248?e=1788998400&v=beta&t=qodMgGXB4h-Tq2MYbVB3qTV0Ai9y9Ph7uVEIZnPCjq0",
   },
   {
     company: "ECell KIET",
